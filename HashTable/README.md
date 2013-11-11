@@ -24,7 +24,7 @@ Note. C++ [STL][2] is not the same as C++ [Standard Library][3]!
 * Based upon conventions introduced by the Standard Template Library (STL)
 * Although STD and STL share many features, neither is a strict superset of the other
 
-### HashMap Features
+### [HashMap][5] Features
 
 Consists of:
 
@@ -140,4 +140,5 @@ is stored compactly in memory, might be faster.
 [2]: http://www.sgi.com/tech/stl/stl_introduction.html
 [3]: http://en.wikipedia.org/wiki/C++_Standard_Library
 [4]: http://en.wikipedia.org/wiki/Open_addressing
+[5]: http://www.eecs.wsu.edu/~ananth/CptS223/Lectures/hashing.pdf
 
