@@ -43,7 +43,7 @@ Note. Might need to store the key and value together in the table for check-ups 
 
 A typical hash function with integer key is:
 
-![equation](http://latex.codecogs.com/gif.latex?Index = h(key)%arraySize)
+**h(key) = hash_func(key)%arraySize**
 
 where *arraySize* is the fixed size of the array as Hash Table.
 h(key) maps key to interger in range [0, *arraySize*-1], which might be 
@@ -67,7 +67,7 @@ be a **prime** number to minimize collision.
 
 		Let K be a number larger than 27 and be a prime number: 29, 31, 37.
 		
-		![equation](http://latex.codecogs.com/gif.latex?h(S)=\sum_{i=0}^{L-1} S[L-1-i]*K^{i})
+		**h(S)=\sum_{i=0}^{L-1} S[L-1-i]*K^{i}**
 		
 		Limit L < N for long strings.
 		
