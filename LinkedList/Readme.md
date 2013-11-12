@@ -11,6 +11,27 @@ of linked list:
 * Sorted/Unsorted
 * Circular/Not circular
 
+
+C++ provides a linked list implementation: [list]. An example for usage:
+
+~~~
+
+   list<int> L;
+   L.push_back(0);              // Insert a new element at the end
+   L.push_front(0);             // Insert a new element at the beginning
+   L.insert(++L.begin(),2);     // Insert "2" at ++L.begin()
+
+   L.push_back(5);
+   L.push_back(6);
+ 
+   list<int>::iterator i;
+
+   for(i=L.begin(); i != L.end(); ++i) cout << *i << " ";
+   cout << endl;
+
+~~~
+
+
 #### Memory Storage
 
 Data items need not be stored contiguously in memory or on disk.
