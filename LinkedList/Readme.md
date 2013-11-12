@@ -12,7 +12,7 @@ of linked list:
 * Circular/Not circular
 
 
-C++ provides a linked list implementation: [list]. An example for usage:
+C++ provides a linked list implementation: [list][3]. An example for usage:
 
 ~~~
 
@@ -74,6 +74,6 @@ cause extra work for trees to maintain its balance
 
 [1]: http://en.wikipedia.org/wiki/Stack_(abstract_data_type)
 [2]: http://en.wikipedia.org/wiki/Queue_(abstract_data_type)
-
+[3]: http://www.cplusplus.com/reference/list/list/list/
 
 
