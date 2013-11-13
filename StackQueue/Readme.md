@@ -131,6 +131,43 @@ Depending on its implementation, whether it is on Linked list or Array.
 * Runtime memory management for Programming Languages (e.g. C)
 
 
+## Queue
+
+In C++, there is this STL implementation of [queue][7], whose sample code is as follows.
+
+~~~
+  #include <queue>          // std::queue
+
+  std::queue<int> myqueue;
+  int myint;
+
+  std::cout << "Please enter some integers (enter 0 to end):\n";
+  do {
+    std::cin >> myint;
+    myqueue.push (myint);
+  } while (myint);
+
+  std::cout << "myqueue contains: ";
+  while (!myqueue.empty())
+  {
+    std::cout << ' ' << myqueue.front();
+    myqueue.pop();
+  }
+  std::cout << '\n';
+
+~~~
+
+
+### Memory Storage
+
+Commonly implemented in an Linked list. 
+
+### Applications of Queue
+
+* Mostly used in operating systems
+
+	-Scheduling of processes
+
 [1]: http://stackoverflow.com/questions/688276/implement-stack-using-two-queues
 [2]: http://stackoverflow.com/questions/69192/how-to-implement-a-queue-using-two-stacks
 [3]: http://www.cplusplus.com/reference/stack/stack/pop/
