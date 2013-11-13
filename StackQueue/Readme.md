@@ -174,6 +174,6 @@ Commonly implemented in an Linked list.
 [4]: http://en.wikipedia.org/wiki/Stack_(abstract_data_type)#Applications
 [5]: http://en.wikipedia.org/wiki/Stack_(abstract_data_type)#Expression_evaluation_and_syntax_parsing
 [6]: http://en.wikipedia.org/wiki/Stack_(abstract_data_type)#Quicksort
-
+[7]: http://www.cplusplus.com/reference/queue/queue/push/
 
 
