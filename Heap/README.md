@@ -81,16 +81,53 @@ Consists of:
 3. ***Insert***
 4. ***Delete***
 
-#### Hash Table
+#### Heap Properties
 
-An array with fixed size: *arraySize*. 
+* Nearly Complete Binary Tree
+* If ***index from 1***, the array holding the heap will have the following property:
 
-Note. Might need to store the key and value together in the table for check-ups due to collision.
+	- Parent(i) : ***floor(i/2.0)***
+	- LeftChild(i): ***2i***
+	- RightChild(i): ***2i+1***
+	
+	Note. These operations can be done by bit-manipulation
+	
+* Max-Heap: for i > 1 (not including the root) , we have A[parent(i)] >= A[i]. A\[1\] is the maximum element in the array.
+* Min-Heap: for i > 1 (not including the root) , we have A[parent(i)] <= A[i] 
+* Height of the heap: theta(logN)
 
 
-#### Hash Function
+#### Building a Heap from Array
 
-A typical hash function with integer key is:
+* An array A can represent a heap with two attributes:
+1. A.length representing the total length of the array
+2. A.heapsize representing how many elements belongs to the heap A[1...A.heapsize]
+
+* Basic operations on A
+
+1. ***MAX-HEAPIFY(A, i)*** assuming the trees rooted at ***LEFT(I) & RIGHT(I) are valid Max-Heap***. Takes O(lgN) time.
+	Note. When moving down A[i], should exchange it with max(LEFT(i), RIGHT(i)) to maintain heap property
+
+2. ***BUILD-MAX-HEAP(A)*** produce a max-heap from an un-sorted input array. Takes O(N) time
+	- build the heap from the bottom-up fashion
+	- A[(floor(N/2))+1, ..., N] are all the leaves of the heap, therefore we only start at the non-leaves
+	- A.heapsize = A.length
+	- For i in floor(N/2) down to 1:
+		MAX-HEAPIFY(A,i);
+	- The upper bound is O(NlogN), however, it is not asymptotically tight. Note that for the leaf level of the heap, it can has at most floor(N/2), which all have height 0. For the nodes with height 1, it can have at most floor(N/2^2) nodes, if you consider the heap built from A[1...N/2] and apply the leaf-level-node again. Thus, for a given height, it can have at most floor(N/2^(h+1)) nodes. 
+	- Run time: \sum_{h=0}^{logN} h \cdot N/2^{h+1} = N \cdot \sum_{h=0}^{logN} h/2^{h+1} = O(N)
+	
+
+3. ***HEAPSORT(A)*** sort the array in place. Takes O(NlogN) time
+	- First, build the heap from array A: BUILD-MAX-HEAP(A)
+	- Exchange A\[1\] with A\[n\], reduce A.heapsize by 1
+	- Call MAX-HEAPIFY(A, 1)
+	- iterate the previous two steps until A.heapsize = 1
+	- Now the array A is sorted in an increasing order
+
+4. Implement a ***priority queue*** using Heap -  MAX-HEAP-INSERT, HEAP-EXTRACT-MAX, HEAP-INCREASE-KEY,
+and HEAP-MAXIMUM procedures
+
 
 
 
