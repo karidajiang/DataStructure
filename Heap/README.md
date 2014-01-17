@@ -112,8 +112,9 @@ Consists of:
 	- build the heap from the bottom-up fashion
 	- A[(floor(N/2))+1, ..., N] are all the leaves of the heap, therefore we only start at the non-leaves
 	- A.heapsize = A.length
-	- For i in floor(N/2) down to 1:
+	- ***For i in floor(N/2) down to 1:***
 		MAX-HEAPIFY(A,i);
+	- Note. this is important to build the heap from ***bottom-up*** because it will move the bigger nodes upwards!!
 	- The upper bound is O(NlogN), however, it is not asymptotically tight. Note that for the leaf level of the heap, it can has at most floor(N/2), which all have height 0. For the nodes with height 1, it can have at most floor(N/2^2) nodes, if you consider the heap built from A[1...N/2] and apply the leaf-level-node again. Thus, for a given height, it can have at most floor(N/2^(h+1)) nodes. 
 	- Run time: \sum_{h=0}^{logN} h \cdot N/2^{h+1} = N \cdot \sum_{h=0}^{logN} h/2^{h+1} = O(N)
 	
@@ -125,43 +126,31 @@ Consists of:
 	- iterate the previous two steps until A.heapsize = 1
 	- Now the array A is sorted in an increasing order
 
-4. Implement a ***priority queue*** using Heap -  MAX-HEAP-INSERT, HEAP-EXTRACT-MAX, HEAP-INCREASE-KEY,
-and HEAP-MAXIMUM procedures
+4. Implement a ***max-priority queue*** using Heap -  MAX-HEAP-INSERT, HEAP-EXTRACT-MAX, HEAP-INCREASE-KEY,
+and HEAP-MAXIMUM, all execute in ***O(logN)*** time.
+	- HEAP-MAXIMUM returns A[1] in O(1) time
+	- HEAP-EXTRACT-MAX runs in O(logN) time:
+		* If heapsize < 1, return error;
+		* max = A[1]
+		* A[1] = A[heapsize]
+		* heapsize--;
+		* MAX_HEPIFY(A, 1)
+	- HEAP-INCREASE-KEY(i, keyValue) increase the key for position i to keyValue:
+		* ***If keyValue < A[i], return error;***
+		* A[i] = keyValue;
+		* While(i>1 && A[i]>A[parent] ): exchange A[i] & A[parent], i = parent
+	- MAX-HEAP-INSERT(keyValue):
+		* heapsize++
+		* A[heapsize] = -inf.
+		* HEAP-INCREASE-KEY(heapsize, keyValue)
 
 
 
-
-* Good Hash Function
-
-	1. Distribute keys uniformly over all table indices. This means *arraySize* should 
-be a **prime** number to minimize collision.
-	2. Fast to compute
-
-* Hash Function for String keys
-
-	- Add up character ASCII values (0-255) for all letters to produce integer keys
-
-		Potential Problems:
-		* Anagrams would have collisions
-		* Lookup time proportional to string length
-		
-	- Use all N letters of string as an **N-digit base-K** number
-
-		Let K be a number larger than 27 and be a prime number: 29, 31, 37.
-		
-		**h(S)=\sum_{i=0}^{L-1} S[L-1-i]*K^{i}**
-		
-		Limit L < N for long strings.
-		
-
-
-	
 
 
 ### Applications of Hash Table
 
-* Accessing Tree/Graph Nodes by Name (the value stores the physical address)
-* Dictinary Lookup (Spell Check, but inefficient for auto correction)
+* Priority Queue Implementation
 
 
 
